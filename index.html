@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Element Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; direction: rtl; text-align: right; }
+        .container { max-width: 600px; margin: auto; }
+        h2 { text-align: center; }
+        .question { margin-bottom: 15px; }
+        .result { display: none; padding: 15px; background: #f4f4f4; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>استبيان عناصر الطفل / Child Element Questionnaire</h2>
+        <form id="quiz-form">
+            <div id="questions"></div>
+            <button type="submit">إرسال / Submit</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const elements = {
+            Wood: {
+                traits: "نشط، فضولي، قوي الإرادة، سريع التصرف. / Energetic, curious, strong-willed, quick to act.",
+                questions: [
+                    "يحب تجربة أشياء جديدة / Enjoys trying new things", "يتعلم من خلال النشاط البدني / Learns physically",
+                    "يتحرك كثيرًا / Twitches and squirms", "يكره القيود / Dislikes restrictions"
+                ],
+                tips: "زيادة شرب الماء والسوائل، إعطاء زيوت السمك. / Increase drinking water & fluids, give fish oils.",
+                careers: "رائد أعمال، طبيب، معلم / Entrepreneur, Medical Career, Teacher"
+            },
+            Fire: {
+                traits: "حماسي، اجتماعي، مفعم بالطاقة، مرح. / Excitable, social, full of energy, playful.",
+                questions: [
+                    "يحب الانتباه / Loves attention", "تتغير مزاجه بسرعة / Mood changes quickly",
+                    "يواجه صعوبة في النوم / Difficulty sleeping", "يتشتت بسهولة / Easily distracted"
+                ],
+                tips: "استخدام التشجيع الإيجابي، توفير وجبة إفطار غنية بالبروتين. / Use positive reinforcement, provide protein-rich breakfast.",
+                careers: "معلم، صحفي، طاهٍ / Teacher, Journalist, Chef"
+            },
+            Earth: {
+                traits: "حنون، مفكر، مخلص، أحيانًا قلق. / Caring, kind, thoughtful, loyal, sometimes worried and anxious.",
+                questions: [
+                    "هل طفلك يهتم بالآخرين دائمًا / Is your child caring", "هل طفلك يأكل بكثرة / Does your child overeat",
+                    "هل يفضل التواجد مع الآخرين / Prefers being with others", "هل يشعر بالقلق عند الانفصال / Feels anxious when away"
+                ],
+                tips: "استخدام الألعاب الجماعية والتكامل الحسي والطهي معًا. / Use group activities, sensory integration, and cooking together.",
+                careers: "أخصائي اجتماعي، معلم، فنان / Social Worker, Teacher, Artist"
+            },
+            Metal: {
+                traits: "منظم، دقيق، يركز على التفاصيل. / Organized, careful, detail-focused.",
+                questions: [
+                    "يحب الروتين / Likes routine", "يشتهي أطعمة غير عادية / Craves unusual food",
+                    "يغضب عند ارتكاب الأخطاء / Gets upset over mistakes", "يحب الترتيب والنظام / Likes order and tidiness"
+                ],
+                tips: "تعزيز الروتين اليومي، استخدام الأنشطة الإبداعية. / Encourage structured routines and creative activities.",
+                careers: "مهندس، محاسب، عالم / Engineer, Accountant, Scientist"
+            },
+            Water: {
+                traits: "خيالي، هادئ، يحب الأحلام، يأخذ وقته. / Imaginative, quiet, loves to dream, takes time.",
+                questions: [
+                    "يملك خيالاً واسعًا / Big imagination", "يشعر بالراحة عند البقاء بمفرده / Comfortable alone",
+                    "يواجه صعوبة في إنهاء المهام / Trouble finishing tasks", "يأخذ وقتًا طويلاً في تنفيذ الأشياء / Takes time doing things"
+                ],
+                tips: "تعزيز الإبداع، استخدام القصص كوسائل تعبيرية. / Foster creativity, use storytelling as expression.",
+                careers: "كاتب، فنان، طبيب نفسي / Writer, Artist, Psychologist"
+            }
+        };
+
+        function populateQuestions() {
+            const questionsDiv = document.getElementById('questions');
+            Object.keys(elements).forEach(element => {
+                const header = document.createElement('h3');
+                header.textContent = `${element} - ${elements[element].traits}`;
+                questionsDiv.appendChild(header);
+                elements[element].questions.forEach(question => {
+                    const div = document.createElement('div');
+                    div.className = 'question';
+                    div.innerHTML = `<label>${question}</label>
+                        <select name="${element}" required>
+                            <option value="1">Rarely</option>
+                            <option value="2">Sometimes</option>
+                            <option value="3">Very Often</option>
+                        </select>`;
+                    questionsDiv.appendChild(div);
+                });
+            });
+        }
+
+        function calculateResults(event) {
+            event.preventDefault();
+            let scores = { Wood: 0, Fire: 0, Earth: 0, Metal: 0, Water: 0 };
+            const formData = new FormData(document.getElementById('quiz-form'));
+            formData.forEach((value, key) => {
+                scores[key] += parseInt(value);
+            });
+
+            let dominantElement = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            document.getElementById('result').innerHTML = `
+                <h3>العنصر المسيطر: ${dominantElement}</h3>
+                <p><strong>السمات:</strong> ${elements[dominantElement].traits}</p>
+                <p><strong>نصائح:</strong> ${elements[dominantElement].tips}</p>
+                <p><strong>الوظائف المحتملة:</strong> ${elements[dominantElement].careers}</p>
+            `;
+            document.getElementById('result').style.display = 'block';
+        }
+
+        document.getElementById('quiz-form').addEventListener('submit', calculateResults);
+        document.addEventListener('DOMContentLoaded', populateQuestions);
+    </script>
+</body>
+</html>
