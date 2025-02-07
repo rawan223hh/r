@@ -25,49 +25,85 @@
     <script>
         const elements = {
             Wood: {
-                traits: "نشط، فضولي، قوي الإرادة، سريع التصرف. / Energetic, curious, strong-willed, quick to act.",
+                traits: "نشط، فضولي، قوي الإرادة، سريع التصرف، يحب الفوز، يتعلم بالممارسة، يحب المخاطر. / Energetic, curious, strong-willed, quick to act, loves to win, learns by doing, loves danger.",
+                approach: "استخدام الماء لتغذية القلب. زيادة شرب الماء والسوائل، إعطاء زيوت السمك، الأولوية للاستحمام، السباحة، والنوم. / Use Water to nourish. Increase drinking water & fluids, give fish oils, prioritize bathing, swimming, and sleep.",
+                training: "استخدام تمارين التنفس، لعبة الوقت، لعبة الواجبات، تحديد جدول يومي، اليوغا، المشي، فنون القتال، أو العلاج الطبيعي. / Breathing, The Time Game, The Homework Game, mapping the day, yoga, hiking, martial arts, or physical therapy.",
+                expanding: "تشجيع الأداء والقيادة، تجربة علاج النطق، الرقص، الجمباز، ألعاب الإبداع مثل Angry 1-2-3. / Encourage performance and leadership, consider speech therapy, dance, gymnastics, & Angry 1-2-3 game.",
+                mastering: "ممارسة الأكل الجماعي، مساعدة في الطهي، الغناء معًا، تناول البروتينات في الإفطار. / Practice eating together, help in cooking meals, and chanting/singing together, proteins for breakfast.",
+                teacherStrategies: "السماح بفواصل حركة قصيرة، إعطاء أدوار قيادية، توفير أنشطة تفاعلية، وضع قواعد واضحة، تعزيز التعاون. / Allow short movement breaks, provide leadership roles, hands-on tasks, set clear rules, and encourage collaboration.",
+                qigong: "تمرين الوقوف كالشجرة: الوقوف بعرض الكتفين، تخيل كونك شجرة قوية، التركيز على التنفس. / Standing Like a Tree: Stand shoulder-width apart, imagine being a sturdy tree, focus on breath.",
+                careers: "رائد أعمال، مستجيب للطوارئ، طبيب، فنان، محامٍ، معلم / Entrepreneur, Emergency Responder, Medical Careers, Artist, Lawyer, Teacher.",
                 questions: [
-                    "يحب تجربة أشياء جديدة / Enjoys trying new things", "يتعلم من خلال النشاط البدني / Learns physically",
-                    "يتحرك كثيرًا / Twitches and squirms", "يكره القيود / Dislikes restrictions"
-                ],
-                tips: "زيادة شرب الماء والسوائل، إعطاء زيوت السمك. / Increase drinking water & fluids, give fish oils.",
-                careers: "رائد أعمال، طبيب، معلم / Entrepreneur, Medical Career, Teacher"
+                    "هل يستمتع طفلك بتجربة أشياء جديدة ويحب التحديات / Does your child enjoy trying new things and taking on challenges",
+                    "هل يتعلم طفلك من خلال النشاط البدني / Does your child learn physically",
+                    "هل يتحرك طفلك كثيرًا أو يهتز / Does your child twitch and squirm",
+                    "هل يكره طفلك أن يُطلب منه ما يجب فعله أو الشعور بالقيود / Does your child dislike being told what to do or feeling restricted",
+                    "هل يحب طفلك إثارة المخاطر / Does your child love the thrill of danger",
+                    "هل يعاني طفلك من التبول اللاإرادي المتكرر / Does your child have recurrent bed wetting",
+                    "هل يظهر طفلك ثقة زائدة بالنفس أو لا يريد المساعدة من الآخرين / Does your child often show overconfidence or not want help from others",
+                    "هل لدى طفلك نوبات غضب متفجرة عند الانزعاج / Does your child have explosive anger when upset",
+                    "هل يشتهي طفلك المنشطات مثل السكر أو الصودا أو الزبدة / Does your child crave stimulants like sugar, soda, or butter"
+                ]
             },
             Fire: {
-                traits: "حماسي، اجتماعي، مفعم بالطاقة، مرح. / Excitable, social, full of energy, playful.",
+                traits: "حماسي، اجتماعي، مفعم بالطاقة، مرح، مضحك، متفائل. / Excitable, social, full of energy, playful, funny, optimistic.",
+                approach: "استخدام استراتيجيات الخشب، مثل تحديد الجدول اليومي، وتوفير وقود ثابت مع وجبة إفطار غنية بالبروتين. / Use Wood strategies, including mapping out the day, and providing steady fuel with a protein breakfast.",
+                training: "التركيز على تحسين النوم، واستخدام الألعاب لتحسين الذاكرة، وتناول زيوت السمك، وشرب الماء الكافي. / Focus on better sleep, using games to sharpen memory, using fish oils, and drinking enough water.",
+                expanding: "توفير منفذ من خلال الطهي، التحكم في نسبة السكر في الدم، الغناء، الإرشاد، التدريبات على التشابهات، وبطاقات التذكير. / Provide an outlet through cooking, blood sugar control, singing, mentoring, practicing analogies, and flash cards.",
+                mastering: "استخدام التأمل، العلاج العطري، وتمارين التنفس لتنظيم العواطف. / Use meditation, aromatherapy, and breathing exercises to regulate emotions.",
+                teacherStrategies: "استخدام التشجيع الإيجابي، وإدخال ألوان زاهية لجذب الانتباه. / Use positivity, encourage with kind words, and incorporate colorful visuals.",
+                qigong: "تمرين الوقوف كالشمس: الوقوف بعرض الكتفين، تخيل كونك الشمس، والتركيز على التنفس. / Standing Like the Sun: Stand shoulder-width apart, imagine being the sun, and focus on breath.",
+                careers: "معلم، صحفي، طاهٍ، عامل حضانة. / Teacher, Journalist, Chef, Daycare Worker.",
                 questions: [
-                    "يحب الانتباه / Loves attention", "تتغير مزاجه بسرعة / Mood changes quickly",
-                    "يواجه صعوبة في النوم / Difficulty sleeping", "يتشتت بسهولة / Easily distracted"
-                ],
-                tips: "استخدام التشجيع الإيجابي، توفير وجبة إفطار غنية بالبروتين. / Use positive reinforcement, provide protein-rich breakfast.",
-                careers: "معلم، صحفي، طاهٍ / Teacher, Journalist, Chef"
-            },
-            Earth: {
+                    "هل يحب طفلك التواجد حول الآخرين ويستمتع بالاهتمام / Does your child love being around other people and enjoy attention",
+                    "هل تتغير مزاجات طفلك بسرعة / Does your child often change moods quickly",
+                    "هل يعاني طفلك من صعوبة في النوم / Does your child have difficulty falling asleep"
+                    ]
+               },
+               Earth: {
                 traits: "حنون، مفكر، مخلص، أحيانًا قلق. / Caring, kind, thoughtful, loyal, sometimes worried and anxious.",
+                approach: "استخدام استراتيجيات النار، مثل المرح، التدليك الحسي، والمشي حافي القدمين على العشب. / Use Fire strategies, including humor, sensory integration, and walking barefoot on grass.",
+                training: "استخدام سرد القصص، زيادة الحركة، وتحسين النظام الغذائي بالبروتين. / Use storytelling, increase movement, and improve diet with protein.",
+                expanding: "استخدام الفنون والموسيقى وألعاب الأنماط والتأمل. / Use arts, music, pattern games, and breathing exercises.",
+                mastering: "ممارسة تمارين تشي كونغ، وزراعة النباتات معًا لتعزيز الشعور بالمسؤولية. / Practice Qigong, plant flowers or vegetables together to encourage responsibility.",
+                teacherStrategies: "استخدام الأنشطة الجماعية لتعزيز الشعور بالانتماء. / Use group activities to foster inclusion and teamwork.",
+                qigong: "تمرين الوقوف بين السماء والأرض: الوقوف باستقامة، رفع يد للأعلى والأخرى للأسفل مع الشهيق والزفير. / Standing Between Sky and Ground: Stand straight, raise one hand upward and the other downward with inhale and exhale.",
+                careers: "أخصائي اجتماعي، معلم، فنان، طبيب. / Social Worker, Teacher, Artist, Healthcare Professional.",
                 questions: [
-                    "هل طفلك يهتم بالآخرين دائمًا / Is your child caring", "هل طفلك يأكل بكثرة / Does your child overeat",
-                    "هل يفضل التواجد مع الآخرين / Prefers being with others", "هل يشعر بالقلق عند الانفصال / Feels anxious when away"
-                ],
-                tips: "استخدام الألعاب الجماعية والتكامل الحسي والطهي معًا. / Use group activities, sensory integration, and cooking together.",
-                careers: "أخصائي اجتماعي، معلم، فنان / Social Worker, Teacher, Artist"
+                    "هل يهتم طفلك دائمًا بالآخرين / Is your child caring and always thinking about others",
+                    "هل طفلك يأكل بكثرة / Does your child overeat",
+                    "هل يفضل طفلك التواجد مع الآخرين بدلاً من البقاء بمفرده / Does your child prefer being with other people rather than alone"
+                ]
             },
             Metal: {
                 traits: "منظم، دقيق، يركز على التفاصيل. / Organized, careful, detail-focused.",
+                approach: "استخدام استراتيجيات الأرض مثل التدليك والطهي والزراعة. / Use Earth strategies like massage, cooking, and gardening.",
+                training: "تشجيع اللعب التمثيلي والفنون والحرف اليدوية لبناء مهارات التفكير النقدي. / Encourage play-acting, arts, and crafts to develop critical thinking.",
+                expanding: "تشجيع شرب المزيد من الماء، النوم المنتظم، وتمارين التنفس. / Encourage drinking more water, regular sleep, and breathing exercises.",
+                mastering: "استخدام ألعاب الألغاز والتمارين الذهنية لتحفيز الدماغ. / Use puzzles and brain exercises to stimulate the mind.",
+                teacherStrategies: "إنشاء جداول يومية وهيكلة الفصل الدراسي لمساعدتهم على التنظيم. / Create daily schedules and structure the classroom to support organization.",
+                qigong: "تمرين الوقوف كالجبل: الوقوف بثبات، الاستنشاق أثناء التمدد بلطف، ثم الاسترخاء. / Standing Like a Mountain: Stand firm, inhale while gently stretching, then relax.",
+                careers: "مهندس، محاسب، معمار، عالم. / Engineer, Accountant, Architect, Scientist.",
                 questions: [
-                    "يحب الروتين / Likes routine", "يشتهي أطعمة غير عادية / Craves unusual food",
-                    "يغضب عند ارتكاب الأخطاء / Gets upset over mistakes", "يحب الترتيب والنظام / Likes order and tidiness"
-                ],
-                tips: "تعزيز الروتين اليومي، استخدام الأنشطة الإبداعية. / Encourage structured routines and creative activities.",
-                careers: "مهندس، محاسب، عالم / Engineer, Accountant, Scientist"
+                    "هل يحب طفلك الروتين ويكره المفاجآت / Does your child like having a routine and dislike surprises or changes",
+                    "هل يشتهي طفلك أطعمة غير عادية / Does your child crave unusual food",
+                    "هل ينزعج طفلك عند ارتكاب الأخطاء / Does your child get upset when they make mistakes or when things go wrong"
+                ]
             },
             Water: {
                 traits: "خيالي، هادئ، يحب الأحلام، يأخذ وقته. / Imaginative, quiet, loves to dream, takes time.",
+                approach: "استخدام استراتيجيات المعدن لتحسين البنية والاستقرار مثل الألعاب الذهنية والموسيقى. / Use Metal strategies for structure and stability like brain games and music.",
+                training: "تشجيع الفنون، القراءة، والأنشطة الهادئة للمساعدة في التعبير عن النفس. / Encourage arts, reading, and quiet activities to help self-expression.",
+                expanding: "تعزيز الحركة مثل المشي لمسافات طويلة، فنون القتال، واليوغا. / Increase movement like hiking, martial arts, and yoga.",
+                mastering: "استخدام التأمل، تمارين تشي كونغ، وسرد القصص لتطوير الإبداع. / Use meditation, Qigong exercises, and storytelling to enhance creativity.",
+                teacherStrategies: "السماح بأوقات هادئة أثناء اليوم لمساعدتهم على التركيز وإعادة الشحن. / Allow quiet time during the day to help them focus and recharge.",
+                qigong: "تمرين الوقوف مثل البحر: الوقوف بثبات، الاستنشاق أثناء رفع الذراعين، ثم الزفير أثناء الانحناء للأمام. / Standing Like the Sea: Stand firmly, inhale while raising arms, then exhale while bending forward.",
+                careers: "كاتب، فنان، موسيقي، طبيب نفسي. / Writer, Artist, Musician, Psychologist.",
                 questions: [
-                    "يملك خيالاً واسعًا / Big imagination", "يشعر بالراحة عند البقاء بمفرده / Comfortable alone",
-                    "يواجه صعوبة في إنهاء المهام / Trouble finishing tasks", "يأخذ وقتًا طويلاً في تنفيذ الأشياء / Takes time doing things"
-                ],
-                tips: "تعزيز الإبداع، استخدام القصص كوسائل تعبيرية. / Foster creativity, use storytelling as expression.",
-                careers: "كاتب، فنان، طبيب نفسي / Writer, Artist, Psychologist"
+                    "هل لدى طفلك خيال واسع ويحب أحلام اليقظة / Does your child have a big imagination and enjoy daydreaming",
+                    "هل يشعر طفلك بالراحة عند البقاء بمفرده / Does your child feel comfortable being alone",
+                    "هل يواجه طفلك صعوبة في إنهاء المهام / Does your child have trouble finishing tasks or feel like giving up"
+                ]
             }
         };
 
@@ -91,26 +127,8 @@
             });
         }
 
-        function calculateResults(event) {
-            event.preventDefault();
-            let scores = { Wood: 0, Fire: 0, Earth: 0, Metal: 0, Water: 0 };
-            const formData = new FormData(document.getElementById('quiz-form'));
-            formData.forEach((value, key) => {
-                scores[key] += parseInt(value);
-            });
-
-            let dominantElement = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-            document.getElementById('result').innerHTML = `
-                <h3>العنصر المسيطر: ${dominantElement}</h3>
-                <p><strong>السمات:</strong> ${elements[dominantElement].traits}</p>
-                <p><strong>نصائح:</strong> ${elements[dominantElement].tips}</p>
-                <p><strong>الوظائف المحتملة:</strong> ${elements[dominantElement].careers}</p>
-            `;
-            document.getElementById('result').style.display = 'block';
-        }
-
-        document.getElementById('quiz-form').addEventListener('submit', calculateResults);
         document.addEventListener('DOMContentLoaded', populateQuestions);
     </script>
 </body>
 </html>
+
